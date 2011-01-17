@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<log began="2010-09-02 10:36:30 +0100" source="irc://irc.fudgeyes.net/JohnSmith">
+	<envelope>
+		<sender hostmask="~johnsmith@somewhere" identifier="johnsmith">JohnSmith</sender>
+		<message id="JXEN2USOHY2" received="2010-09-02 10:36:30 +0100">what?</message>
+		<message id="Q6O0HZSOHY2" received="2010-09-02 10:36:35 +0100">you have no chunky bacon?</message>
+	</envelope>
+	<envelope>
+		<sender self="yes" hostmask="myself@localhost">myself</sender>
+		<message id="R4JJJ8TOHY2" received="2010-09-02 10:36:44 +0100">Err...</message>
+	</envelope>
+	<envelope>
+		<sender hostmask="~johnsmith@somewhere" identifier="johnsmith">JohnSmith</sender>
+		<message id="WF2WECTOHY2" received="2010-09-02 10:36:48 +0100">we need some chunky bacon</message>
+		<message id="S5BU9FTOHY2" received="2010-09-02 10:36:51 +0100">preferrably with extra chunkyness</message>
+	</envelope>
+	<envelope>
+		<sender self="yes" hostmask="myself@localhost">myself</sender>
+		<message id="TNA8EFTOHY2" received="2010-09-02 10:36:51 +0100">sure, i have loads!</message>
+	</envelope>
+	<envelope>
+		<sender hostmask="~johnsmith@somewhere" identifier="johnsmith">JohnSmith</sender>
+		<message id="L4OE61UOHY2" received="2010-09-02 10:37:13 +0100">great <span class="emoticon smile"><samp>:)</samp></span></message>
+	</envelope>
+	<envelope>
+		<sender self="yes" hostmask="myself@localhost">myself</sender>
+		<message id="M14O4UOHY2" received="2010-09-02 10:37:16 +0100">ok, well if thats it i will get it ready!</message>
+	</envelope>
+	<event id="VI5I5ZUHY2" name="userDisconnected" occurred="2010-09-02 12:49:53 +0100">
+		<message>JohnSmith disconnected from the server.</message>
+	</event>
+	<event id="D1U7LH65IY2" name="userAvailable" occurred="2010-09-02 16:30:17 +0100">
+		<message><span class="member">JohnSmith</span> is now available.</message>
+	</event>
+	<event id="PXPR35G8IY2" name="userDisconnected" occurred="2010-09-02 17:40:53 +0100">
+		<message>JohnSmith disconnected from the server.</message>
+	</event>
+</log>

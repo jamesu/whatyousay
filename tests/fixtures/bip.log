@@ -1,0 +1,54 @@
+01-04-2010 00:04:49 -!- LongWind!~long@some.other.server has quit [Quit: Leaving]
+01-04-2010 00:46:22 -!- Mop!~mop@hey.aserver.net has joined #letstalk
+01-04-2010 01:00:18 < rucksta!~rucksta@someclient3: yay! All our games are "ready for sale"!
+01-04-2010 01:10:53 -!- SoGot!|SoGot!~chatzilla@some.server.net has quit [Quit: reboot bbl]
+01-04-2010 01:13:10 -!- Someone!~Fred@someserver.net has quit [Quit: Leaving]
+01-04-2010 01:14:48 -!- wooter!~wooter@pool-party.net has joined #letstalk
+01-04-2010 01:17:51 < wooter!~wooter@pool-party.net: my friend just got a dj program and hardware interface for his mac
+01-04-2010 01:17:53 < wooter!~wooter@pool-party.net: and it got me thinking
+01-04-2010 01:50:35 -!- wooter!~wooter@pool-party.net has quit [Quit: ]
+01-04-2010 06:17:13 < CamoF!~m@192.168.1.4: they'd said it was coming back in october
+01-04-2010 06:17:16 < CamoF!~m@192.168.1.4: still no pricing though :\
+01-04-2010 06:18:33 < TorroB!~torrob@192.168.0.1: i wonder how much power it eats
+01-04-2010 06:19:29 < CamoF!~m@192.168.1.4: if its just a 5870 with 6 display port connectors, probably not too bad
+01-04-2010 09:14:19 < TorroB!~torrob@192.168.0.1: http://www.google.co.uk/intl/en/landing/translateforanimals/ lol
+01-04-2010 09:53:32 -!- Mop!~mop@hey.aserver.net has quit [Quit: Mop]
+01-04-2010 11:03:56 -!- SoGot!|SoGot!~chatzilla@some.server.net has joined #letstalk
+01-04-2010 11:08:12 -!- SoGot!|SoGot!~chatzilla@some.server.net has quit [Client closed connection]
+01-04-2010 11:18:50 -!- dbaker!~douglas.b@127.0.0.1 has joined #letstalk
+01-04-2010 11:39:55 -!- woot!~47e0bd37@someclient1 has joined #letstalk
+01-04-2010 11:41:25 -!- Sick!~Sick@192.168.5.1 has joined #letstalk
+01-04-2010 11:41:28 < woot!~47e0bd37@someclient1: hello folks
+01-04-2010 12:15:01 -!- SoGot!|SoGot!~chatzilla@some.server.net has joined #letstalk
+01-04-2010 12:15:27 < rucksta!~rucksta@someclient3: I'm starting to somewhat understand why new people are having issues with UV mapping... well, at least new people using blender. Been trying to help some guy (that's not really that new), and woow... UV mapping in blender seem horribly annoying.
+01-04-2010 12:26:44 > Myself: haha
+01-04-2010 12:40:31 < rucksta!~rucksta@someclient3: hah.  
+01-04-2010 12:40:44 < rucksta!~rucksta@someclient3: "no it doesn't work... you have the source, fix it"
+01-04-2010 12:40:50 > Myself: hahaha
+01-04-2010 12:40:52 < rucksta!~rucksta@someclient3: <grin>
+01-04-2010 12:45:31 < woot!~47e0bd37@someclient1: heh the blender uv mapping? yeah blender is completely confusing ;)
+01-04-2010 12:45:52 < rucksta!~rucksta@someclient3: well, in this case it's not ONLY confusing, it's apparently also wrong.
+01-04-2010 12:46:04 < woot!~47e0bd37@someclient1: lol
+01-04-2010 12:46:06 < woot!~47e0bd37@someclient1: wrong how? ;)
+01-04-2010 12:46:32 < rucksta!~rucksta@someclient3: a cylindrical projection of a cylinder shouldn't result in any wrapping anywhere.
+01-04-2010 12:46:45 < rucksta!~rucksta@someclient3: and apparently it does.
+01-04-2010 12:51:10 < rucksta!~rucksta@someclient3: well, they also seem to like calling stuff completely different things from what everyone else calls it. 
+01-04-2010 12:51:25 < rucksta!~rucksta@someclient3: which I guess might be part of the problem.
+01-04-2010 12:59:35 < woot!~47e0bd37@someclient1: yeah that doesn't help
+01-04-2010 12:59:42 < woot!~47e0bd37@someclient1: but i have used blender a LOT
+01-04-2010 12:59:49 < woot!~47e0bd37@someclient1: and it has a lot of missing features
+01-04-2010 13:36:20 -!- whatthehell!~wth@192.168.4.1 has joined #letstalk
+01-04-2010 13:37:29 -!- whatthehell!~wth@192.168.4.1 has quit [Quit: ]
+01-04-2010 14:01:25 -!- Sick!~Sick@192.168.5.1 has quit [Quit: I was using Localhost! Visit http://localhost for more information.]
+01-04-2010 14:11:49 -!- LongWind!~long@some.other.server has joined #letstalk
+01-04-2010 14:11:50 -!- mode/#letstalk [+o Logan-MGT] by ChanServ!judd@maxgaming.net
+01-04-2010 14:53:08 < AtWork!~c7f9b0fb@someclient1: game ready for sale....yay...
+01-04-2010 14:54:04 < CamoF!~m@192.168.1.4: congrats :)
+01-04-2010 14:54:10 < CamoF!~m@192.168.1.4: are you actually selling, or giving it away free?
+01-04-2010 14:54:28 < AtWork!~c7f9b0fb@someclient1: giving it away....there's almost nothing to it at this point
+01-04-2010 14:55:40 < AtWork!~c7f9b0fb@someclient1: i'll be submitting updates to it regularly though...the final vision should be a fun little multiplayer, turn-based, tactical, war game...with a twist?
+01-04-2010 15:09:24 < CamoF!~m@192.168.1.4: http://www.thinkgeek.com/stuff/41/iCade.shtml?icpg=Carousel_iCade_1 too bad this is almost definately fake
+01-04-2010 15:10:53 -!- woot!~47e0bd37@someclient1 has quit [Quit: http://server1.com ajax IRC Client]
+01-04-2010 15:17:38 < CamoF!~m@192.168.1.4: Safari was just approved :)
+01-04-2010 15:24:26 > Myself: congrats
+01-04-2010 22:07:09 -!- Rorlof!~jan@someclient2 has left #letstalk
