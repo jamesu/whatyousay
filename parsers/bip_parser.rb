@@ -9,6 +9,10 @@ class BipParser < Parser
   def reset
   end
   
+  def parse(input)
+    parse_all_lines(input)
+  end
+  
   def extract_sender(name)
     # either
     # woot!~woot@pool-173-62-200-183.phlapa.fios.verizon.net:

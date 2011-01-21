@@ -24,6 +24,10 @@ class IrciiParser < Parser
     @current_time = Time.now
   end
   
+  def parse(input)
+    parse_all_lines(input)
+  end
+  
   # returns [sender, content, is_action]
   def extract_message(input)
     sender = nil

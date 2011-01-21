@@ -10,10 +10,20 @@ class TalkerParser < Parser
   def initialize(collection)
     super(collection)
     
-    @xpath = '//script'
-    @type = :html
     @current_time = Time.now
     @current_sender = nil
+  end
+  
+  def parse(input)
+    event = parse_script(input.read)
+
+    unless event.nil?
+      if event.is_a?(Array)
+        event.each {|evt| @collection.add_event(evt)}
+      else
+        @collection.add_event(event)
+      end
+    end
   end
   
   def parse_event(event)
@@ -37,7 +47,7 @@ class TalkerParser < Parser
   end
   
   def parse_script(content)
-    match = content.match(/var talkerEvents = (\[[^\]]+\])/)
+    match = content.match(/var talkerEvents = (\[.*)$/)
     if match
       events = ActiveSupport::JSON.decode(match[1])
       events.map do |event|

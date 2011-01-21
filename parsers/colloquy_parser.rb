@@ -15,10 +15,28 @@ class ColloquyParser < Parser
   def initialize(collection)
     super(collection)
     
-    @xpath = 'log'
-    @type = :xml
     @current_time = Time.now
     @current_sender = nil
+  end
+  
+  def parse(input)
+    data = Nokogiri::XML.parse(input.read)
+    
+    # Parse XML
+    data.xpath('log').each do |log_node|
+      @collection.source = log_node['source']
+      log_node.xpath('*').each do |node|
+        event = parse_node(node)
+      
+        unless event.nil?
+          if event.is_a?(Array)
+            event.each {|evt| @collection.add_event(evt)}
+          else
+            @collection.add_event(event)
+          end
+        end
+      end
+    end
   end
   
   def parse_node(entry)
