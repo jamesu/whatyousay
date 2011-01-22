@@ -80,7 +80,7 @@ class ColloquyParser < Parser
       content = "???"
     end
       
-    {:name => entry_type,
+    {:type => entry_type,
       :sender => sender,
       :source => nil,
       :occurred => time,

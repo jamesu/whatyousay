@@ -13,7 +13,7 @@ class Sender
   
   def to_loghash
     {
-      :ident => @ident,
+      :ident => @ident||@name,
       :name => @name,
       :hostmask => @hostmask
     }

@@ -43,20 +43,20 @@ class BipParser < Parser
         content = words[2..-1].join(' ')
         
         base = {
-          :name => :event,
+          :type => :event,
           :sender => extract_sender(words[1]),
           :occurred => time,
           :content => content}
         
         if content.match(/has quit/)
-          base[:name] = :userDisconnected
+          base[:type] = :userDisconnected
         elsif content.match(/has joined/)
-          base[:name] = :userAvailable
+          base[:type] = :userAvailable
         elsif content.match(/is now known as (.*)/)
           #user = $1.match(USER_MATCH)
-          base[:name] = :userNewNickname
+          base[:type] = :userNewNickname
         elsif content.match(/has left/)
-          base[:name] = :userLeft
+          base[:type] = :userLeft
         end
         
         base
@@ -75,7 +75,7 @@ class BipParser < Parser
         end
         
         return {
-          :name => is_action ? :action : :message,
+          :type => is_action ? :action : :message,
           :sender => sender,
           :occurred => time,
           :content => cnt}

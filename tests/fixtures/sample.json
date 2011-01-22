@@ -1,0 +1,93 @@
+{
+  "entries": [
+    {
+      "type": "message",
+      "occurred": "Thu Sep 02 10:36:30 +0100 2010",
+      "source": "irc://irc.fudgeyes.net/JohnSmith",
+      "sender": "johnsmith",
+      "content": "what?"
+    },
+    {
+      "type": "message",
+      "occurred": "Thu Sep 02 10:36:35 +0100 2010",
+      "source": "irc://irc.fudgeyes.net/JohnSmith",
+      "sender": "johnsmith",
+      "content": "you have no chunky bacon?"
+    },
+    {
+      "type": "message",
+      "occurred": "Thu Sep 02 10:36:44 +0100 2010",
+      "source": "irc://irc.fudgeyes.net/JohnSmith",
+      "sender": "myself",
+      "content": "Err..."
+    },
+    {
+      "type": "message",
+      "occurred": "Thu Sep 02 10:36:48 +0100 2010",
+      "source": "irc://irc.fudgeyes.net/JohnSmith",
+      "sender": "johnsmith",
+      "content": "we need some chunky bacon"
+    },
+    {
+      "type": "message",
+      "occurred": "Thu Sep 02 10:36:51 +0100 2010",
+      "source": "irc://irc.fudgeyes.net/JohnSmith",
+      "sender": "johnsmith",
+      "content": "preferrably with extra chunkyness"
+    },
+    {
+      "type": "message",
+      "occurred": "Thu Sep 02 10:36:51 +0100 2010",
+      "source": "irc://irc.fudgeyes.net/JohnSmith",
+      "sender": "myself",
+      "content": "sure, i have loads!"
+    },
+    {
+      "type": "message",
+      "occurred": "Thu Sep 02 10:37:13 +0100 2010",
+      "source": "irc://irc.fudgeyes.net/JohnSmith",
+      "sender": "johnsmith",
+      "content": "great :)"
+    },
+    {
+      "type": "message",
+      "occurred": "Thu Sep 02 10:37:16 +0100 2010",
+      "source": "irc://irc.fudgeyes.net/JohnSmith",
+      "sender": "myself",
+      "content": "ok, well if thats it i will get it ready!"
+    },
+    {
+      "type": "userDisconnected",
+      "occurred": "Thu Sep 02 12:49:53 +0100 2010",
+      "source": "irc://irc.fudgeyes.net/JohnSmith",
+      "sender": "myself",
+      "content": "JohnSmith disconnected from the server."
+    },
+    {
+      "type": "userAvailable",
+      "occurred": "Thu Sep 02 16:30:17 +0100 2010",
+      "source": "irc://irc.fudgeyes.net/JohnSmith",
+      "sender": "myself",
+      "content": "JohnSmith is now available."
+    },
+    {
+      "type": "userDisconnected",
+      "occurred": "Thu Sep 02 17:40:53 +0100 2010",
+      "source": "irc://irc.fudgeyes.net/JohnSmith",
+      "sender": "myself",
+      "content": "JohnSmith disconnected from the server."
+    }
+  ],
+  "senders": [
+    {
+      "hostmask": "~johnsmith@somewhere",
+      "name": "JohnSmith",
+      "ident": "johnsmith"
+    },
+    {
+      "hostmask": "myself@localhost",
+      "name": "myself",
+      "ident": "myself"
+    }
+  ]
+}

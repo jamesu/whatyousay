@@ -23,7 +23,7 @@ describe ColloquyParser do
   it "should accept quit messages" do
     doc = Nokogiri::XML.parse('<event id="VI5I5ZUHY2" name="userDisconnected" occurred="2010-09-02 12:49:53 +0100"><message>JohnSmith disconnected from the server.</message></event>')
     event = @parser.parse_node(doc.children[0])
-    event[:name].should == :userDisconnected
+    event[:type].should == :userDisconnected
     event[:content].should == "JohnSmith disconnected from the server."
     event[:occurred].to_s.should == "Thu Sep 02 12:49:53 +0100 2010"
     event[:sender].should == nil
@@ -32,7 +32,7 @@ describe ColloquyParser do
   it "should accept join messages" do
     doc = Nokogiri::XML.parse('<event id="D1U7LH65IY2" name="userAvailable" occurred="2010-09-02 16:30:17 +0100"><message><span class="member">JohnSmith</span> is now available.</message></event>')
     event = @parser.parse_node(doc.children[0])
-    event[:name].should == :userAvailable
+    event[:type].should == :userAvailable
     event[:content].should == "JohnSmith is now available."
     event[:occurred].to_s.should == "Thu Sep 02 16:30:17 +0100 2010"
     event[:sender].should == nil

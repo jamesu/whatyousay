@@ -16,6 +16,7 @@ require 'parsers/bip_parser'
 require 'parsers/colloquy_parser'
 require 'parsers/ircii_parser'
 require 'parsers/talker_parser'
+require 'parsers/json_parser'
 
 require 'html_dumper'
 

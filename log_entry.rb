@@ -16,7 +16,7 @@ class LogEntry
     @occurred = entry[:occurred]
     @content = entry[:content] || ''
     @source = entry[:source]
-    @type = entry[:name]
+    @type = entry[:type]
   end
   
   def is_action
@@ -25,7 +25,7 @@ class LogEntry
   
   def to_loghash(opts={})
     {
-      :sender => @sender.to_loghash,
+      :sender => @sender.ident||@sender.name,
       :occurred => @occurred,
       :content => @content,
       :source => @source,

@@ -22,7 +22,7 @@ describe IrciiParser do
     event = @parser.parse_line(LOG_OPEN)
     event.should == nil
     event = @parser.parse_line("16:19 < Myself> yo woot")
-    event[:name].should == :message
+    event[:type].should == :message
     event[:content].should == "yo woot"
     event[:occurred].to_s.should == "Wed Jan 06 16:19:00 UTC 2010"
     event[:sender][:ident].should == "Myself"
@@ -30,7 +30,7 @@ describe IrciiParser do
     event[:sender][:name].should == "Myself"
     
     event = @parser.parse_line("16:23 < woot> lol why is that? what did you expect?")
-    event[:name].should == :message
+    event[:type].should == :message
     event[:content].should == "lol why is that? what did you expect?"
     event[:occurred].to_s.should == "Wed Jan 06 16:23:00 UTC 2010"
     event[:sender][:ident].should == "woot"
@@ -55,7 +55,7 @@ describe IrciiParser do
   it "should accept quit messages" do
     event = @parser.parse_line(LOG_OPEN)
     event = @parser.parse_line("15:01 -!- Sick [~Sick@192.168.0.1] has quit [Ping timeout]")
-    event[:name].should == :userDisconnected
+    event[:type].should == :userDisconnected
     event[:content].should == "has quit [Ping timeout]"
     event[:occurred].to_s.should == "Wed Jan 06 15:01:00 UTC 2010"
     event[:sender][:ident].should == "~Sick"
@@ -66,7 +66,7 @@ describe IrciiParser do
   it "should accept join messages" do
     event = @parser.parse_line(LOG_OPEN)
     event = @parser.parse_line("15:16 -!- Sick [~Sick@192.168.0.1] has joined #letstalk")
-    event[:name].should == :userAvailable
+    event[:type].should == :userAvailable
     event[:content].should == "has joined #letstalk"
     event[:occurred].to_s.should == "Wed Jan 06 15:16:00 UTC 2010"
     event[:sender][:ident].should == "~Sick"

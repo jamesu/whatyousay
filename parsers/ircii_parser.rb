@@ -66,24 +66,24 @@ class IrciiParser < Parser
         if user_match
           # i.e. Foo [...] has done something
           base = {
-            :name => :event,
+            :type => :event,
             :sender => {:ident => user_match[2], :name => user_match[1], :host => user_match[3]},
             :occurred => time,
             :content => user_match[4] }
           
           if user_match[4].match(/has quit/)
-            base[:name] = :userDisconnected
+            base[:type] = :userDisconnected
           elsif user_match[4].match(/has joined/)
-            base[:name] = :userAvailable
+            base[:type] = :userAvailable
           elsif user_match[4].match(/has left/)
-            base[:name] = :userLeft
+            base[:type] = :userLeft
           end
           
           base
         else
           # i.e. ???
           return {
-            :name => :event,
+            :type => :event,
             :sender => {:ident => words[0], :name => words[0], :host => nil},
             :occurred => time,
             :content => words[1..-1].join(' ')}
@@ -92,7 +92,7 @@ class IrciiParser < Parser
         # User chat / action
         chat = extract_message(match[3])
         return {
-          :name => chat[2] ? :action : :message,
+          :type => chat[2] ? :action : :message,
           :sender => chat[0],
           :occurred => time,
           :content => chat[1]}

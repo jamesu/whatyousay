@@ -19,7 +19,8 @@ PARSERS = {
   'colloquy' => ColloquyParser,
   'bip' => BipParser,
   'ircii' => IrciiParser,
-  'talker' => TalkerParser
+  'talker' => TalkerParser,
+  'json' => JSONParser
 }
 
 def entry(logs)
@@ -63,7 +64,7 @@ def entry(logs)
     File.open(OPTIONS[:output], "w") do |fs|
       json = {:senders => collection.senders.map{|k,v| v.to_loghash },
        :entries => collection.entries.map{|entry| entry.to_loghash }}
-     
+       
        fs.write(JSON.pretty_generate(json))
     end
   end

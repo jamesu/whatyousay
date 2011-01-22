@@ -31,15 +31,15 @@ class TalkerParser < Parser
     user = event['user']
     base = {
       :occurred => Time.at(event['time'].to_i),
-      :name => EVENTYPE_MAP[event['type']]||:event,
+      :type => EVENTYPE_MAP[event['type']]||:event,
       :source => "talker://#{room['name']}",
       :content => event['content'],
       :sender => {:ident => user['id'], :name => user['name']}
     }
     
-    if base[:name] == :userAvailable
+    if base[:type] == :userAvailable
       base[:content] = "left"
-    elsif base[:name] == :userDisconnected
+    elsif base[:type] == :userDisconnected
       base[:content] = "joined"
     end
     
