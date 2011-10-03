@@ -5,7 +5,8 @@
 # Reads from the list of input files, see --help for info.
 #
 
-require 'core'
+require 'pathname'
+require File.join(File.dirname(__FILE__), 'core')
 require 'optparse'
 require 'json'
 

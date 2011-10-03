@@ -25,7 +25,7 @@ class LogEntry
   
   def to_loghash(opts={})
     {
-      :sender => @sender.ident||@sender.name,
+      :sender => @sender ? @sender.ident||@sender.name : 'UNKNOWN',
       :occurred => @occurred,
       :content => @content,
       :source => @source,

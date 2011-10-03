@@ -6,17 +6,14 @@ require 'time'
 require 'CGI'
 require 'active_support'
 
-require 'log_collection'
-require 'log_entry'
-require 'sender'
+# Core
+%w{log_collection log_entry sender html_dumper}.each do |lib|
+  require File.join(File.dirname(__FILE__), lib)
+end
 
 # Parsers
-require 'parsers/parser'
-require 'parsers/bip_parser'
-require 'parsers/colloquy_parser'
-require 'parsers/ircii_parser'
-require 'parsers/talker_parser'
-require 'parsers/json_parser'
+%w{parser bip_parser colloquy_parser ircii_parser talker_parser json_parser}.each do |parser|
+  require File.join(File.dirname(__FILE__), "parsers/#{parser}")
+end
 
-require 'html_dumper'
 
