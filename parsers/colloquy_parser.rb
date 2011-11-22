@@ -56,7 +56,7 @@ class ColloquyParser < Parser
     
     entry_type = entry.name
     
-    if entry.name == "event":
+    if entry.name == "event"
       time = Time.parse(entry["occurred"])
       content = entry.xpath("message").inner_text
       reason = entry.xpath("reason")
