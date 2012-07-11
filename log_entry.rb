@@ -1,5 +1,5 @@
 class LogEntry
-  attr_accessor :occurred, :content, :sender, :type, :source
+  attr_accessor :occurred, :content, :sender, :by, :type, :source
   
   # Types
   # :event => generic event
@@ -11,8 +11,9 @@ class LogEntry
   # :message => message
   # :action => /msg or notice
   
-  def initialize(entry, sender=nil)
+  def initialize(entry, sender=nil, by=nil)
     @sender = sender
+    @by = by
     @occurred = entry[:occurred]
     @content = entry[:content] || ''
     @source = entry[:source]
@@ -29,6 +30,7 @@ class LogEntry
       :occurred => @occurred,
       :content => @content,
       :source => @source,
+      :by => @by,
       :type => @type
     }
   end

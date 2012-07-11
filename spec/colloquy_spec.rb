@@ -37,4 +37,49 @@ describe ColloquyParser do
     event[:occurred].utc.to_s.should == Time.utc(2010, 9, 2, 15, 30, 17).to_s
     event[:sender].should == nil
   end
+
+  it "should handle who events" do
+    join = Nokogiri::XML.parse(<<-EOL
+    <event id="HELEG6BMEP3" name="memberJoined" occurred="2010-09-02 17:41:53 +0100">
+      <message><span class="member">foo</span> joined the chat room.</message>
+      <who hostmask="foo@host.com">foo</who>
+    </event>
+    EOL
+    )
+
+    leave = Nokogiri::XML.parse(<<-EOL
+      <event id="AGZ4MZINEP3" name="memberParted" occurred="2012-09-02 17:43:53 +0100">
+      <message><span class="member">foo</span> left the chat room.</message>
+      <who hostmask="foo@host.com">foo</who>
+      <reason>Ping timeout: 121 seconds</reason>
+    </event>
+    EOL
+    )
+
+    join_event = @parser.parse_node(join.children[0])
+    leave_event = @parser.parse_node(leave.children[0])
+
+    join_event[:type].should == :userAvailable
+    join_event[:sender][:ident].should == "foo"
+
+    leave_event[:type].should == :userLeft
+    leave_event[:sender][:ident].should == "foo"
+  end
+
+  it "should handle by events" do
+    op = Nokogiri::XML.parse(<<-EOL
+    <event id="APKA3PHJWW3" name="memberPromotedToOperator" occurred="2012-07-02 10:08:13 +0100">
+      <message><span class="member">Foo</span> was promoted to operator by <span class="member">ChanServ</span>.</message>
+      <who hostmask="Foo@127.0.0.1" identifier="foo" class="operator">Foo</who>
+      <by hostmask="ChanServ@services.int" identifier="chanserv" class="server operator">ChanServ</by>
+    </event>
+    EOL
+    )
+
+    op_event = @parser.parse_node(op.children[0])
+
+    op_event[:type].should == :memberPromotedToOperator
+    op_event[:sender][:ident].should == "foo"
+    op_event[:by][:ident].should == "chanserv"
+  end
 end

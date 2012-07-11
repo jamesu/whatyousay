@@ -18,7 +18,7 @@ class JSONParser < Parser
         :content => entry['content'],
         :source => entry['source'],
         :type => entry['type'].to_sym
-      }, @collection.senders[entry['sender']])
+      }, @collection.senders[entry['sender']], @collection.senders[entry['by']])
     end
   end
 end

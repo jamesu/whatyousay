@@ -45,13 +45,35 @@ class ColloquyParser < Parser
     xpath = entry.xpath("sender").first
     sender = xpath ? {:ident => xpath["identifier"],
                       :name => xpath.inner_text,
-                      :hostmask => xpath["hostmask"]} : @current_sender
-    @current_sender = sender
+                      :hostmask => xpath["hostmask"]} : nil
+
+    # for join & part events
+    if sender.nil?
+      xpath = entry.xpath("who").first
+      sender = xpath ? {:ident => xpath["identifier"],
+                        :name => xpath.inner_text,
+                        :hostmask => xpath["hostmask"]} : nil
+    end
+
+    sender ||= @current_sender
+    #@current_sender = sender
+
+    # for actions caused by someone else
+    xpath = entry.xpath("by").first
+    by = xpath ? {:ident => xpath["identifier"],
+                  :name => xpath.inner_text,
+                  :hostmask => xpath["hostmask"]} : nil
     
     if sender && sender[:ident].nil? && sender[:hostmask]
       # match from hostmask
       match = sender[:hostmask].match(HOSTMASK_MATCH)
       sender[:ident] = match[1]
+    end
+
+    if by && by[:ident].nil? && by[:hostmask]
+      # match from hostmask
+      match = by[:hostmask].match(HOSTMASK_MATCH)
+      by[:ident] = match[1]
     end
     
     entry_type = entry.name
@@ -72,9 +94,12 @@ class ColloquyParser < Parser
       time = Time.parse(entry["received"])
       content = entry.inner_text
     elsif entry.name == "envelope"
-      return entry.xpath("message").map do |sub_entry|
+      @current_sender = sender
+      list = entry.xpath("message").map do |sub_entry|
         parse_node(sub_entry)
       end
+      @current_sender = nil
+      return list
     else
       time = nil
       content = "???"
@@ -82,6 +107,7 @@ class ColloquyParser < Parser
       
     {:type => entry_type,
       :sender => sender,
+      :by => by,
       :source => nil,
       :occurred => time,
       :content => content

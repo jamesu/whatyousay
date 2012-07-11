@@ -69,7 +69,7 @@ td.content {
 </head><body>\n")
 fs.write("<table>\n")
 last_date = nil
-last_sender = nil
+last_sender = -1
 @collection.entries.each do |entry|
   dt = entry.occurred
   dt = Date.civil(dt.year, dt.month, dt.day)
@@ -86,6 +86,7 @@ last_sender = nil
   end
   content = CGI::escapeHTML((entry.is_action ? "* #{entry.content}" : entry.content))
   fs.write("<tr class=\"#{entry.type}\"><td class=\"sender\">#{sender}</td><td class=\"content\">#{content}</td><td class=\"date\">#{entry.occurred.strftime('%H:%M:%S')}</td></tr>\n")
+  #fs.write("<tr class=\"debug\"><td class=\"sender\">DEBUG</td><td class=\"content\">#{CGI::escapeHTML(entry.inspect)}</td><td class=\"date\"></td></tr>\n")
 end
 fs.write("</table>\n")
 fs.write("</body></html>\n")
