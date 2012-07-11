@@ -1,8 +1,7 @@
 source :rubygems
-gem 'sinatra', :require => false
 gem 'sqlite3'
 gem 'activesupport'
-gem 'activerecord'
+#gem 'activerecord'
 gem 'json'
 gem 'nokogiri'
 
