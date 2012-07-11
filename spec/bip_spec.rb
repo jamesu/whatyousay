@@ -20,7 +20,7 @@ describe BipParser do
     event = @parser.parse_line("01-04-2010 11:41:28 < woot!~47e0bd37@someclient1: hello folks")
     event[:type].should == :message
     event[:content].should == "hello folks"
-    event[:occurred].to_s.should == "Thu Apr 01 11:41:28 UTC 2010"
+    event[:occurred].utc.to_s.should == Time.utc(2010, 4, 1, 11, 41, 28).to_s
     event[:sender][:ident].should == "~47e0bd37"
     event[:sender][:host].should == "someclient1"
     event[:sender][:name].should == "woot"
@@ -28,7 +28,7 @@ describe BipParser do
     event = @parser.parse_line("01-04-2010 12:26:44 > Myself: haha")
     event[:type].should == :message
     event[:content].should == "haha"
-    event[:occurred].to_s.should == "Thu Apr 01 12:26:44 UTC 2010"
+    event[:occurred].utc.to_s.should == Time.utc(2010, 4, 1, 12, 26, 44).to_s
     event[:sender][:ident].should == "Myself"
     event[:sender][:host].should == nil
     event[:sender][:name].should == "Myself"
@@ -38,7 +38,7 @@ describe BipParser do
     event = @parser.parse_line("01-04-2010 00:04:49 -!- LongWind!~long@some.other.server has quit [Quit: Leaving]")
     event[:type].should == :userDisconnected
     event[:content].should == "has quit [Quit: Leaving]"
-    event[:occurred].to_s.should == "Thu Apr 01 00:04:49 UTC 2010"
+    event[:occurred].utc.to_s.should == Time.utc(2010, 4, 1, 0, 4, 49).to_s
     event[:sender][:ident].should == "~long"
     event[:sender][:host].should == "some.other.server"
     event[:sender][:name].should == "LongWind"
@@ -46,7 +46,7 @@ describe BipParser do
     event = @parser.parse_line("01-04-2010 11:08:12 -!- SoGot!|SoGot!~chatzilla@some.server.net has quit [Client closed connection]")
     event[:type].should == :userDisconnected
     event[:content].should == "has quit [Client closed connection]"
-    event[:occurred].to_s.should == "Thu Apr 01 11:08:12 UTC 2010"
+    event[:occurred].utc.to_s.should == Time.utc(2010, 4, 1, 11, 8, 12).to_s
     event[:sender][:ident].should == "|SoGot!~chatzilla"
     event[:sender][:host].should == "some.server.net"
     event[:sender][:name].should == "SoGot"
@@ -56,7 +56,7 @@ describe BipParser do
     event = @parser.parse_line("01-04-2010 01:14:48 -!- wooter!~wooter@pool-party.net has joined #letstalk")
     event[:type].should == :userAvailable
     event[:content].should == "has joined #letstalk"
-    event[:occurred].to_s.should == "Thu Apr 01 01:14:48 UTC 2010"
+    event[:occurred].to_s.should == Time.utc(2010, 4, 1, 1, 14, 48).to_s
     event[:sender][:ident].should == "~wooter"
     event[:sender][:host].should == "pool-party.net"
     event[:sender][:name].should == "wooter"

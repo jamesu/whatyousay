@@ -25,7 +25,7 @@ describe ColloquyParser do
     event = @parser.parse_node(doc.children[0])
     event[:type].should == :userDisconnected
     event[:content].should == "JohnSmith disconnected from the server."
-    event[:occurred].to_s.should == "Thu Sep 02 12:49:53 +0100 2010"
+    event[:occurred].utc.to_s.should == Time.utc(2010, 9, 2, 11, 49, 53).to_s
     event[:sender].should == nil
   end
   
@@ -34,7 +34,7 @@ describe ColloquyParser do
     event = @parser.parse_node(doc.children[0])
     event[:type].should == :userAvailable
     event[:content].should == "JohnSmith is now available."
-    event[:occurred].to_s.should == "Thu Sep 02 16:30:17 +0100 2010"
+    event[:occurred].utc.to_s.should == Time.utc(2010, 9, 2, 15, 30, 17).to_s
     event[:sender].should == nil
   end
 end

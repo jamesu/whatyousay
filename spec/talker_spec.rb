@@ -31,7 +31,7 @@ describe TalkerParser do
     event[:type].should == :userDisconnected
     event[:source].should == "talker://Main"
     event[:content].should == "joined"
-    event[:occurred].to_s.should == "Fri Apr 02 09:23:16 +0100 2010"
+    event[:occurred].utc.to_s.should == Time.utc(2010, 4, 2, 8, 23, 16).to_s
     event[:sender][:name].should == 'fred'
   end
   
@@ -42,7 +42,7 @@ describe TalkerParser do
     event[:type].should == :userAvailable
     event[:source].should == "talker://Main"
     event[:content].should == "left"
-    event[:occurred].to_s.should == "Fri Apr 02 09:20:30 +0100 2010"
+    event[:occurred].utc.to_s.should == Time.utc(2010, 4, 2, 8, 20, 30).to_s
     event[:sender][:name].should == 'frodo'
   end
 end

@@ -30,7 +30,7 @@ class TalkerParser < Parser
     room = event['room']
     user = event['user']
     base = {
-      :occurred => Time.at(event['time'].to_i),
+      :occurred => Time.at(event['time'].to_i).utc,
       :type => EVENTYPE_MAP[event['type']]||:event,
       :source => "talker://#{room['name']}",
       :content => event['content'],
