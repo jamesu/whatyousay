@@ -1,5 +1,8 @@
 require 'rubygems'
-require 'nokogiri'
+require 'bundler'
+Bundler.setup
+Bundler.require(:default, (ENV["RACK_ENV"]||'development').to_sym)
+
 require 'fileutils'
 require 'date'
 require 'time'

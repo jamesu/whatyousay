@@ -4,7 +4,7 @@ describe Parser do
   it "should parse xml-based messages" do
     collection = LogCollection.new
     parser = ColloquyParser.new(collection)
-    colloquy_data = File.open("tests/fixtures/sample.colloquyTranscript") {|f| f.read}
+    colloquy_data = File.open("spec/fixtures/sample.colloquyTranscript") {|f| f.read}
     parser.parse(StringIO.new(colloquy_data))
     
     collection.senders.keys.length.should == 2
@@ -17,7 +17,7 @@ describe Parser do
   it "should parse line-based messages" do
     collection = LogCollection.new
     parser = IrciiParser.new(collection)
-    ircii_data = File.open("tests/fixtures/ircii.log") {|f| f.read}
+    ircii_data = File.open("spec/fixtures/ircii.log") {|f| f.read}
     parser.parse(StringIO.new(ircii_data))
     
     collection.senders.keys.length.should == 9

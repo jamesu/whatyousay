@@ -7,7 +7,7 @@ describe ColloquyParser do
   end
   
   it "should parse messages" do
-    colloquy_data = File.open("tests/fixtures/sample.colloquyTranscript") {|f| f.read}
+    colloquy_data = File.open("spec/fixtures/sample.colloquyTranscript") {|f| f.read}
     xmlDoc = Nokogiri::XML.parse(colloquy_data)
     
     xmlDoc.xpath('log/*').each do |node|

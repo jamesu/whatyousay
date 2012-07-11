@@ -7,7 +7,7 @@ describe JSONParser do
   end
   
   it "should parse messages" do
-    json_data = File.open("tests/fixtures/sample.json") {|f| f.read}
+    json_data = File.open("spec/fixtures/sample.json") {|f| f.read}
     @parser.parse(StringIO.new(json_data))
     
     @collection.entries.length.should == 11

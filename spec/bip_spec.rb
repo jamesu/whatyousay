@@ -7,7 +7,7 @@ describe BipParser do
   end
   
   it "should parse messages" do
-    bip_data = File.open("tests/fixtures/bip.log") {|f| f.read}
+    bip_data = File.open("spec/fixtures/bip.log") {|f| f.read}
     @data = StringIO.new(bip_data)
     @data.each_line do |line|
       event = @parser.parse_line(line)

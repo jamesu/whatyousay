@@ -7,7 +7,7 @@ describe TalkerParser do
   end
   
   it "should parse messages" do
-    talker_data = File.open("tests/fixtures/talker.html") {|f| f.read}
+    talker_data = File.open("spec/fixtures/talker.html") {|f| f.read}
     xmlDoc = Nokogiri::HTML.parse(talker_data)
     xmlDoc.xpath('//script').each do |log_node|
       event = @parser.parse_node(log_node)

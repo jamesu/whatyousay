@@ -9,7 +9,7 @@ describe IrciiParser do
   end
   
   it "should parse messages" do
-    ircii_data = File.open("tests/fixtures/ircii.log") {|f| f.read}
+    ircii_data = File.open("spec/fixtures/ircii.log") {|f| f.read}
     @data = StringIO.new(ircii_data)
     events = []
     @data.each_line do |line|
