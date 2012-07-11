@@ -22,13 +22,13 @@ class LogCollection
       # Look for sender[:name]/sender[:old_name]
       name = sender[:old_name]||sender[:name]
       matched_senders = @senders.select do |k, v|
-        if v == name
+        if v.name == name
           true
         else
           false
         end
       end
-      matched_senders.first
+      matched_senders.first ? matched_senders.first[1] : nil
     end
   end
   
@@ -44,12 +44,23 @@ class LogCollection
     
     @entries << log_entry
   end
+
+  def limit_entries_by_time(start_time, end_time)
+    return if (start_time.nil? && end_time.nil?)
+    @entries.reject! do |entry|
+      if (start_time.nil? or entry.occurred >= start_time) && (end_time.nil? or entry.occurred < end_time)
+        false
+      else
+        true
+      end
+    end
+  end
   
   def clean_entries
     @entries.sort! { |x,y| x.occurred <=> y.occurred }
     
     last_entry = nil
-    @entries = @entries.reject do |entry|
+    @entries.reject! do |entry|
       unless last_entry.nil?
         rej = if entry.occurred == last_entry.occurred &&
                  entry.sender == last_entry.sender &&

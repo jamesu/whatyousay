@@ -9,6 +9,7 @@ require 'pathname'
 require File.join(File.dirname(__FILE__), 'core')
 require 'optparse'
 require 'json'
+require 'time'
 
 OPTIONS = {
   :log_type => 'colloquy',
@@ -47,6 +48,8 @@ def entry(logs)
   end
   
   collection.clean_entries
+  collection.limit_entries_by_time(OPTIONS[:start_time], OPTIONS[:end_time])
+  
   unless OPTIONS[:channel].nil?
     channel = OPTIONS[:channel]
     collection.entries.each {|entry| entry.source = channel}
@@ -79,6 +82,9 @@ OptionParser.new do |opts|
   opts.on( '-c', '--channel CHANNEL', 'Set channel' ) { |channel| OPTIONS[:channel] = channel }
   opts.on( '-o', '--output file', 'Set output' ) { |output| OPTIONS[:output] = output }
   opts.on( '-h', '--help', 'Display this screen' ) { puts opts; exit }
+
+  opts.on( '-s', '--start TIME', 'Only include messages from time till now or the end' ) { |start_time| OPTIONS[:start_time] = Time.parse(start_time) }
+  opts.on( '-e', '--end TIME', 'Only include messages from before time' ) { |end_time| OPTIONS[:end_time] = Time.parse(end_time) }
 end.parse!
 
 entry(ARGV)
