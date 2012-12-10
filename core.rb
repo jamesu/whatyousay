@@ -17,7 +17,7 @@ require 'active_support'
 end
 
 # Parsers
-%w{parser bip_parser colloquy_parser ircii_parser talker_parser json_parser}.each do |parser|
+%w{parser bip_parser colloquy_parser ircii_parser talker_parser json_parser adium_parser}.each do |parser|
   require File.join(File.dirname(__FILE__), "parsers/#{parser}")
 end
 

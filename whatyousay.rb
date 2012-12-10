@@ -22,7 +22,8 @@ PARSERS = {
   'bip' => BipParser,
   'ircii' => IrciiParser,
   'talker' => TalkerParser,
-  'json' => JSONParser
+  'json' => JSONParser,
+  'adium' => AdiumParser
 }
 
 def entry(logs)
